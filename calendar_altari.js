@@ -38,22 +38,3 @@ monthsData.forEach((month, index) => {
 })
 
 console.log('makeDate = ', makeDate)
-// monthsData.forEach((month) => {
-//   const data = [];
-//   let increase = 0;
-
-//   while (increase < month.hasDate) {
-//     increase++;
-//     data.push(increase)
-//   }
-//   makeDate.push(data);
-// })
-
-
-
-
-
-
-
-  
-  
