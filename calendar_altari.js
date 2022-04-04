@@ -14,7 +14,7 @@ const monthsData = [
 ];
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 const makeDate = [];
-const currentYear = '2020';
+const currentYear = 2022;
 
 monthsData.forEach((month, index) => {
   const hasDate = month.hasDate;
