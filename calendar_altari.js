@@ -13,28 +13,74 @@ const monthsData = [
   { value: 12, name: 'December', hasDate: 31 },
 ];
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-const makeDate = [];
-const currentYear = '2020';
+const checkLeapYear = (year) => {
+  let isLeapYear = false;
 
-monthsData.forEach((month, index) => {
-  const hasDate = month.hasDate;
-  const data = [];
-  const firstDate = `${currentYear}, ${month.value}, 1`
-  const firstDateObject = new Date(firstDate);
-  const getDay = firstDateObject.getDay();
-  const day = getDay === 0 ? 7 : getDay;
-  let empty = 1;
-  let increase = 0;
-
-  while (empty < day) {
-    data.push(0);
-    empty++;
+  if (year % 4 === 0) {
+    if(year % 400 !== 0 && year % 100 === 0) {
+      isLeapYear = false;
+    } else {
+      isLeapYear = true;
+    }
   }
-  while (increase < hasDate) {
-    increase++;
-    data.push(increase)
-  }
-  makeDate.push(data);
-})
+  return isLeapYear;
+}
+const calendarData = (currentYear) => {
+  const yearDate = [];
 
-console.log('makeDate = ', makeDate)
+  monthsData.forEach((month) => {
+    const isLeapYear = checkLeapYear(currentYear);
+    const hasDate = (month.value === 2 && isLeapYear) ? month.hasDate + 1 : month.hasDate;
+    const monthData = [];
+    const firstDate = `${currentYear}, ${month.value}, 1`;
+    const firstDateObject = new Date(firstDate);
+    const getDay = firstDateObject.getDay();
+    const day = getDay === 0 ? 7 : getDay;
+    let empty = 1;
+    let increase = 0;
+  
+    while (empty < day) {
+      monthData.push(0);
+      empty++;
+    }
+    while (increase < hasDate) {
+      increase++;
+      monthData.push(increase);
+    }
+    yearDate.push(monthData);
+  })
+  return yearDate;
+};
+
+const displayCalendar = (year, month) => {
+  const currentMonth = calendarData(year)[month - 1];
+  let table = ``;
+  table += `<table>`;
+  table += `  <tr>`;
+  for (let i = 0; i < 5; i++) {
+    days.forEach((day) => {
+      if (day === 'Sun') {
+        table += `  <th class="sunday">${day}</th>`;
+      } else {
+        table += `  <th>${day}</th>`;
+      }
+    }); 
+  }
+  table += `  </tr>`
+  table += `  <tr>`;
+  currentMonth.forEach((date) => {
+    table += `  <td>${date}</td>`;
+  });
+  table += `  </tr>`;
+  table += `</table>`;
+  
+  document.getElementById('year').innerHTML = year;
+  document.getElementById('month').innerHTML = month;
+  document.querySelector('.wrap').innerHTML = table;
+}
+
+const init = () => {
+  displayCalendar(2022, 3);
+}
+init();
+
