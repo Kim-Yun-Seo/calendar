@@ -30,3 +30,50 @@ for (let month = 0; month < monthsData.length; month++ ) {
   monthArray.push(dateArray);
 }
 console.log('monthArray = ', monthArray);
+
+const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+
+monthsdate.foreach((month) => {
+  //일단 윤년 생략.
+  //요일 계산 하는거 만들어야함.
+  const monthdate = [];
+  const firstDate = `${currentYear}, ${month.value}, 1`;
+})
+//yeardate = monthArray
+//윤년계산기
+//요일별로 0추가
+//display 만들기
+//currentMonth = 현재 달
+//calendarData = monthArray + 0 포함
+//-> 0이 들어가 있는 프로그램 짜야함
+
+
+
+
+
+// const displayCalendar = (year, month) => {
+//   const currentMonth = calendarData(year)[month - 1];
+//   let table = ``;
+//   table += `<table>`;
+//   table += `  <tr>`;
+//   for (let i = 0; i < 5; i++) {
+//     days.forEach((day) => {
+//       if (day === 'Sun') {
+//         table += `  <th class="sunday">${day}</th>`;
+//       } else {
+//         table += `  <th>${day}</th>`;
+//       }
+//     }); 
+//   }
+//   table += `  </tr>`
+//   table += `  <tr>`;
+//   currentMonth.forEach((date) => {
+//     table += `  <td>${date}</td>`;
+//   });
+//   table += `  </tr>`;
+//   table += `</table>`;
+  
+//   document.getElementById('year').innerHTML = year;
+//   document.getElementById('month').innerHTML = month;
+//   document.querySelector('.wrap').innerHTML = table;
+// }
