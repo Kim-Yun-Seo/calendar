@@ -42,13 +42,12 @@ for (let i = 0; i < monthsData.length; i++) {
   for (let j = 1; j <= monthsData[i].hasDate; j++) {
     monthArray.push(j)
   }
+
   // console.log('00 + [1, 2, 34] = [0,0,1,2,3,4 ~] = >');
-  
   for (let k = 0; k < day; k++) {
     calendarData[i].unshift(0)
   }
 }
-
 console.log('calendarData = ', calendarData);
 
 
@@ -70,31 +69,3 @@ console.log('calendarData = ', calendarData);
 //calendarData = monthArray + 0 포함
 //-> 0이 들어가 있는 프로그램 짜야함
 
-
-
-// const displayCalendar = (year, month) => {
-//   const currentMonth = calendarData(year)[month - 1];
-//   let table = ``;
-//   table += `<table>`;
-//   table += `  <tr>`;
-//   for (let i = 0; i < 5; i++) {
-//     days.forEach((day) => {
-//       if (day === 'Sun') {
-//         table += `  <th class="sunday">${day}</th>`;
-//       } else {
-//         table += `  <th>${day}</th>`;
-//       }
-//     }); 
-//   }
-//   table += `  </tr>`
-//   table += `  <tr>`;
-//   currentMonth.forEach((date) => {
-//     table += `  <td>${date}</td>`;
-//   });
-//   table += `  </tr>`;
-//   table += `</table>`;
-  
-//   document.getElementById('year').innerHTML = year;
-//   document.getElementById('month').innerHTML = month;
-//   document.querySelector('.wrap').innerHTML = table;
-// }
