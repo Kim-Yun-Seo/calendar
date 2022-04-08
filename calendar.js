@@ -19,26 +19,49 @@ const monthsData = [
   { value: 12, name: 'December', hasDate: 31 },
 ];
 
-const monthArray = [];
+//빈 array 있어야 하고
+//날짜 넣어야 하고
+//for 날짜 계산
 
-for (let month = 0; month < monthsData.length; month++ ) {
-  let dateArray = [];
 
-  for(let day = 0; day < monthsData[month].hasDate; day++) {
-    dateArray.push(day+1);
+// 0012345 .. 31
+// 없는거 + 갖고있는 거 
+
+let year = 2022;
+const calendarData = [];
+
+for (let i = 0; i < monthsData.length; i++) {
+  const monthArray = [];
+  // 2022 3월 1일이 무슨 요일인지
+  
+  let month = i+1
+  let firstDateObject = new Date(`${year}-${month}-1`);
+  let day = firstDateObject.getDay()
+
+  calendarData.push(monthArray);
+  for (let j = 1; j <= monthsData[i].hasDate; j++) {
+    monthArray.push(j)
   }
-  monthArray.push(dateArray);
+  // console.log('00 + [1, 2, 34] = [0,0,1,2,3,4 ~] = >');
+  
+  for (let k = 0; k < day; k++) {
+    calendarData[i].unshift(0)
+  }
 }
-console.log('monthArray = ', monthArray);
 
-const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+console.log('calendarData = ', calendarData);
 
-monthsdate.foreach((month) => {
-  //일단 윤년 생략.
-  //요일 계산 하는거 만들어야함.
-  const monthdate = [];
-  const firstDate = `${currentYear}, ${month.value}, 1`;
-})
+
+// const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+
+// monthsData.forEach((month) => {
+//   //일단 윤년 생략.
+//   //요일 계산 하는거 만들어야함.
+//   const monthdate = [];
+//   const firstDate = `${currentYear}, ${month.value}, 1`;
+// })
+
+
 //yeardate = monthArray
 //윤년계산기
 //요일별로 0추가
@@ -46,8 +69,6 @@ monthsdate.foreach((month) => {
 //currentMonth = 현재 달
 //calendarData = monthArray + 0 포함
 //-> 0이 들어가 있는 프로그램 짜야함
-
-
 
 
 
