@@ -12,7 +12,6 @@ const monthsInfoData = [
   { value: 11, name: 'November', endDate: 30 },
   { value: 12, name: 'December', endDate: 31 },
 ];
-
 { 
   let year = 2022;
 
@@ -25,8 +24,8 @@ const monthsInfoData = [
 
     return[...frontEmptyArray, ...datesArray, ...backEmptyArray]
   })
-  console.log('calendar = ', calendarData);
-}
+  console.log('마지막 공백 처리 calendar = ', calendarData);
+};
 { 
   let year = 2022;
 
@@ -37,45 +36,33 @@ const monthsInfoData = [
 
     return[...emptyArray, ...datesArray]
   })
-  console.log('calendar = ', calendarData);
-}
+  console.log('9줄 forEach를 map으로 바꾼 calendar = ', calendarData);
+};
 { 
-  // const calendarData = [];
-  // let year = 2022;
-  // monthsInfoData.forEach((month) => {
-  //   let firstDay = new Date(`${year}-${month.value}-1`).getDay()
-  //   let emptyArray = Array(firstDay).fill('');
-  //   const datesArray = Array(month.endDate).fill().map((_, index) => index + 1)
-  //   let finalData = [...emptyArray, ...datesArray]
-    
-  //   calendarData.push(finalData);
-  // })
-}
-{
-  // const calendarData = [];
-  // let year = 2022;
-  // for (let i = 0; i < monthsInfoData.length; i++) {
-  //   let firstDay = new Date(`${year}-${monthsInfoData[i].value}-1`).getDay()
-  //   let emptyArray = Array(firstDay).fill('');
-  //   const datesArray = Array(monthsInfoData[i].endDate).fill().map((value, index) => index + 1)
-  //   let finalData = [...emptyArray, ...datesArray]
-    
-  //   calendarData.push(finalData);
-  // }
-  // console.log('calendarData = ', calendarData);
-}
+  const calendarData = [];
+  let year = 2022;
 
+  monthsInfoData.forEach((month) => {
+    let firstDay = new Date(`${year}-${month.value}-1`).getDay()
+    let emptyArray = Array(firstDay).fill('');
+    const datesArray = Array(month.endDate).fill().map((_, index) => index + 1)
+    let finalData = [...emptyArray, ...datesArray]
+    
+    calendarData.push(finalData);
+  })
+  console.log('11줄 for를 forEach로 바꾼 calendar = ', calendar);
+};
 {
-// const calendarData = [];
-// let year = 2022;
+  const calendarData = [];
+  let year = 2022;
 
-// for (let i = 0; i < monthsInfoData.length; i++) {
-//   let firstDay = new Date(`${year}-${monthsInfoData[i].value}-1`).getDay()
-//   let emptyArray = Array(firstDay).fill('');
-//   const datesArray = Array(monthsInfoData[i].endDate).fill().map((value, index) => index + 1)
-//   let finalData = [...emptyArray, ...datesArray]
-  
-//   calendarData.push(finalData);
-// }
-// console.log('calendarData = ', calendarData);
-}
+  for (let i = 0; i < monthsInfoData.length; i++) {
+    let firstDay = new Date(`${year}-${monthsInfoData[i].value}-1`).getDay()
+    let emptyArray = Array(firstDay).fill('');
+    const datesArray = Array(monthsInfoData[i].endDate).fill().map((value, index) => index + 1)
+    let finalData = [...emptyArray, ...datesArray]
+    
+    calendarData.push(finalData);
+  }
+  console.log('11줄 spread, map 추가 calendarData = ', calendarData);
+};
