@@ -13,12 +13,8 @@ const monthsInfoData = [
   { value: 12, name: 'December', endDate: 31 },
 ];
 const year = 2020;
-//윤년 식적고
-//윤년이면 mon~ 2월이 endDate가 29일 or 28일
+
 monthsInfoData[1].endDate = (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) ? 29 : 28;
-
-
-
 const calendarData = monthsInfoData.map(month => {
   const datesArray = Array(month.endDate).fill().map((_, index) => index+1)
   const firstDay = new Date(`${year}-${month.value}-1`).getDay();
@@ -29,3 +25,10 @@ const calendarData = monthsInfoData.map(month => {
   return [...frontEmptyArray, ...datesArray, ...backEmptyArray];
 });
 console.log('calendar = ', calendarData);
+
+console.log('document = ', );
+const table = document.getElementById('temp');
+console.log('document = ', table);
+table.innerHTML = '<em>aaa</em>'
+
+console.log(' = ', );
