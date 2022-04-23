@@ -32,22 +32,31 @@ const calendarData = monthsInfoData.map((month) => {
 
   return [...frontEmptyArray, ...datesArray, ...backEmptyArray];
 })
-console.log('cal = ', calendarData );
-
-let dom = document.getElementById('saaa');
-console.log('dom = ', dom);
+let dom = document.getElementById('February');
 let header = `<tr>`
-
-days.forEach((day) => {
-  header += `<th>${day}</th>`
+//요일들이 2월 달력이 끝때까지 반복?
+// 끝날 어떻게 찾을까
+// 반복 어떻게 하지?
+// 끝날찾기 = length찾기..?
+// 요일들을 묶어서 돌릴까
+//length를 7로 나눠서 
+// 데이를 7번 순회한 th를 다시 5번 돌린다.
+// 5번 돌리면 은 어떻게 하지?---
+for (let i = 0; i < 5; i++) {
+  days.forEach((day) => {
+    header += `<th>${day}</th>` 
+  })
+}
+header += `</tr>`
+let datas = `<tr>`
+calendarData[1].forEach(date => {
+  datas += `<td>${date}</td>` 
 });
-header += `</tr>`
-header += `<tr>`
-calendarData[1].forEach((date) => {
-  header += `<td>${date}</td>`
-})
-header += `</tr>`
+datas += `</tr>`
+
+dom.innerHTML = header + datas;
 
 
 
-dom.innerHTML = header;
+
+console.log('dom = ', dom);
