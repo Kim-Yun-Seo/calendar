@@ -30,5 +30,3 @@ console.log('document = ', );
 const table = document.getElementById('temp');
 console.log('document = ', table);
 table.innerHTML = '<em>aaa</em>'
-
-console.log(' = ', );
