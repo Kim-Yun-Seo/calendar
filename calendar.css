@@ -10,6 +10,24 @@ th {
 td {
   border: 1px solid black;
 }
-.sunday {
-  color: red;
+.sun {
+  color: rgb(255, 0, 0);
+}
+.mon {
+  color: rgb(255, 136, 0);
+}
+.tue {
+  color: rgb(199, 189, 41);
+}
+.wed {
+  color: rgb(37, 131, 18);
+}
+.thr {
+  color: blue;
+}
+.fri {
+  color: rgb(53, 43, 104);
+}
+.sat {
+  color: rgb(118, 13, 238);
 }
